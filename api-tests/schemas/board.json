@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "id",
+    "currentStatus",
+    "totalAmount",
+    "currency",
+    "deliveryZone",
+    "paymentReceived",
+    "cookingStarted",
+    "courierAssigned",
+    "delivered",
+    "nextSuggestedCommand"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "currentStatus": {
+      "enum": [
+        "CREATED",
+        "PAID",
+        "COOKING",
+        "OUT_FOR_DELIVERY",
+        "DELIVERED",
+        "CANCELLED"
+      ]
+    },
+    "totalAmount": {
+      "type": "number",
+      "minimum": 0
+    },
+    "currency": {
+      "const": "EUR"
+    },
+    "deliveryZone": {
+      "enum": [
+        "CENTER",
+        "OUTSKIRTS"
+      ]
+    },
+    "paymentReceived": {
+      "type": "boolean"
+    },
+    "cookingStarted": {
+      "type": "boolean"
+    },
+    "courierAssigned": {
+      "type": "boolean"
+    },
+    "delivered": {
+      "type": "boolean"
+    },
+    "nextSuggestedCommand": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": false
+}

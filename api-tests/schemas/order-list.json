@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "id",
+      "status",
+      "totalAmount",
+      "currency",
+      "deliveryZone"
+    ],
+    "properties": {
+      "id": {
+        "type": "string",
+        "format": "uuid"
+      },
+      "status": {
+        "enum": [
+          "CREATED",
+          "PAID",
+          "COOKING",
+          "OUT_FOR_DELIVERY",
+          "DELIVERED",
+          "CANCELLED"
+        ]
+      },
+      "totalAmount": {
+        "type": "number",
+        "minimum": 0
+      },
+      "currency": {
+        "const": "EUR"
+      },
+      "deliveryZone": {
+        "enum": [
+          "CENTER",
+          "OUTSKIRTS"
+        ]
+      }
+    },
+    "additionalProperties": false
+  }
+}
